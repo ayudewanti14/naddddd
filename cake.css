@@ -1,0 +1,254 @@
+.cake {
+  position: absolute;
+  display: none;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+  height: 300px;
+}
+
+.cake:after {
+  background: rgba(255, 255, 255, 1);
+  border-radius: 300px;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 6px;
+}
+
+/* Candle */
+.velas {
+  background: rgba(255, 255, 255, 1);
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -7.5px;
+  margin-top: -25px;
+  width: 15px;
+  height: 50px;
+}
+
+.velas:after,
+.velas:before {
+  background: rgba(255, 0, 0, 0.4);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 6.6667px;
+}
+
+.velas:after {
+  top: 25%;
+  left: 0;
+}
+
+.velas:before {
+  top: 45%;
+  left: 0;
+}
+
+/* Fire */
+.fuego {
+  display: none;
+  border-radius: 100%;
+  box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  margin-left: -10px;
+  width: 20px;
+  height: 37.5px;
+}
+
+.fuego:nth-child(1) {
+  animation: fuego 2s infinite;
+}
+.fuego:nth-child(2) {
+  animation: fuego 1.5s infinite;
+}
+.fuego:nth-child(3) {
+  animation: fuego 1s infinite;
+}
+.fuego:nth-child(4) {
+  animation: fuego 0.5s infinite;
+}
+.fuego:nth-child(5) {
+  animation: fuego 0.2s infinite;
+}
+
+@keyframes fuego {
+  0% {
+    background: rgba(254, 248, 97, 0.5);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    transform: translateY(-60px) scale(0);
+  }
+  100% {
+    background: rgba(254, 248, 97, 0.5);
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Frosting */
+.cobertura {
+  background: rgba(236, 231, 227, 1);
+  border-radius: 150px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  margin-left: -83.33px;
+  margin-top: -15px;
+  width: 166.67px;
+  height: 37.5px;
+  z-index: 10;
+}
+
+.cobertura:after,
+.cobertura:before {
+  background: rgba(236, 231, 227, 1);
+  border-radius: 300px;
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 30px;
+}
+
+.cobertura:after {
+  top: 20px;
+  right: 42.8571px;
+}
+.cobertura:before {
+  top: 30px;
+  right: 27.2727px;
+}
+
+/* Cake body */
+.bizcocho {
+  background: rgba(109, 56, 38, 1);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -75px;
+  width: 150px;
+  height: 100px;
+}
+
+.bizcocho:after,
+.bizcocho:before {
+  background: rgba(236, 231, 227, 0.6);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 15px;
+}
+
+.bizcocho:after {
+  top: 30%;
+  left: 0;
+}
+.bizcocho:before {
+  top: 60%;
+  left: 0;
+}
+
+/* Text */
+h1,
+p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  width: 100%;
+  user-select: none;
+}
+
+/* ==============================================
+   RESPONSIVE DESIGN FIX BALON & MOBILE
+   ============================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .cake {
+    transform: scale(0.8);
+    margin: 0 auto;
+    left: 50%;
+    margin-left: -100px;
+  }
+
+  .balloons {
+    width: 12vw !important;
+    height: 12vw !important;
+  }
+
+  .balloons h2 {
+    font-size: 1.3rem !important;
+    margin-top: 8px;
+  }
+
+  .btn {
+    margin: 5px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
+/* Perbaiki posisi dan ukuran elemen cake agar benar-benar centered di HP */
+@media (max-width: 480px) {
+  .cake {
+    position: relative; /* ganti dari absolute ke relative agar lebih mudah diatur */
+    left: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* tampilkan cake */
+    transform: scale(0.6);
+    width: 180px; /* atur ulang lebar tetap sesuai skala */
+    height: 180px; /* sesuaikan tinggi */
+    margin-top: 10px;
+  }
+
+  /* Jika ada .velas, sesuaikan agar tetap proporsional */
+  .velas {
+    width: 9px;
+    height: 30px;
+    margin-left: -4.5px;
+    margin-top: -15px;
+  }
+
+  /* Sesuaikan ukuran tulisan */
+  h1, p {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  /* Pastikan balloons fleksibel dan ukurannya sesuai */
+  .balloons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .balloons img, .balloons h2 {
+    width: 60px;
+    height: 60px;
+    font-size: 0.75rem;
+  }
+
+  /* Tombol agar lebih mudah diakses */
+  .btn {
+    width: 90%;
+    max-width: 280px;
+    font-size: 1.1rem;
+    padding: 14px 0;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: block;
+  }
+}
